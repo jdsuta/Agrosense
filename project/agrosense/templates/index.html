@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1>Summary - Last 7 Days</h1>
+    <p> {{ weeka_agop }} - {{ current_timep }}
+    </p>
+    <br>
+        <table class="table table-hover">
+            <caption>Device Summary</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Device Name</th>
+                    <th scope="col">Temperature (Average)</th>
+                    <th scope="col">Humidity (Average)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for device in device_summaryp%}
+                <tr>
+                    <td>{{ device.device_name }}</td>
+                    <td>{{ device.avgtemperature }}</td>
+                    <td>{{ device.avghumidity }}</td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+        <!-- length is a Jinja filter that returns the length of the list "device_graphs" -->
+        {% for index in range(device_graphs|length) %}
+        <!-- With the lenght we can access the index of the list of devices to get the name-->
+        <h1>Graph for Device {{ device_namesp[index] }}</h1>
+        <br>
+        <!-- With the lenght we can access the index of the list of device_graphs to get the Graph-->
+        <img src="data:image/png;base64,{{ device_graphs[index] }}" alt="Graph">
+        <br>
+        <br>
+        {% endfor %}
+
+{% endblock %}

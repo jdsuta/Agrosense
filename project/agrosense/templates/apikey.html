@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    API Key
+{% endblock %}
+
+{% block main %}
+    <p class="text-primary">Note: Device name must be unique!</p>
+    <form action="/create_apikey" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="devicename" name="devicename" placeholder="Device Name" type="text" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Create API Key</button>
+    </form>
+
+    <br>
+    <!-- Render Text2 using text2p variable -->
+    {{ text2p|safe }}
+    <br>
+    <br>
+    <!-- Render Text using devicenamep, and api_keyp variables -->
+    <p class="text-dark">{{ textp }}  <span class="badge bg-light">{{ devicenamep }}</span></p>
+    <p class="text-dark">{{ text3p }} <span class="badge bg-light">{{ api_keyp }}</span></p>
+    <br>
+
+
+{% endblock %}

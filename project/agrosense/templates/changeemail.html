@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change Email
+{% endblock %}
+
+{% block main %}
+    <p class="text-success">{{ TextConfirmationp }}</p>
+    <form action="/changeemail" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email"
+                placeholder="Email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Email must contain and @ symbol, a . and a top domain com, org, co.uk" required>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="emailconfirmation"
+                placeholder="Email Confirmation" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Email must contain and @ symbol, a . and a top domain com, org, co.uk" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Change Email</button>
+    </form>
+    <br>
+{% endblock %}

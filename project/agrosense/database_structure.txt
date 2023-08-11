@@ -1,0 +1,61 @@
+CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL, cash NUMERIC NOT NULL DEFAULT 10000.00, email);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE UNIQUE INDEX username ON users (username);
+CREATE TABLE stocks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    stock TEXT NOT NULL
+    );
+CREATE UNIQUE INDEX stock
+ON stocks (stock);
+CREATE TABLE devices (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    device_name TEXT NOT NULL,
+    device_apikey TEXT NOT NULL
+    );
+CREATE TABLE device_assignments (
+    user_id INTEGER,
+    device_id INTEGER,
+    FOREIGN KEY(user_id)
+        REFERENCES users (id)
+    FOREIGN KEY(device_id)
+        REFERENCES devices (id)
+);
+
+CREATE TABLE device_history (
+    user_id INTEGER,
+    device_id INTEGER,
+    humidity REAL,
+    temperature REAL,
+    epoch_time INT,
+    FOREIGN KEY(user_id)
+        REFERENCES users (id)
+    FOREIGN KEY(device_id)
+        REFERENCES devices (id)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS "stock_assignments"(
+  user_id INT,
+  stock_id INT,
+  shares INT,
+  price INT,
+  epoch_time INT
+);
+
+
+----- If we need to create the table again.
+
+CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, email TEXT NOT NULL, hash TEXT NOT NULL, cash NUMERIC NOT NULL DEFAULT 10000.00);
+
+
+ALTER TABLE your_table ADD COLUMN humidity REAL
+
+ALTER TABLE device_assignments ADD COLUMN humidity REAL;
+ALTER TABLE device_assignments ADD COLUMN temperature REAL;
+ALTER TABLE device_assignments ADD COLUMN epoch_time INT;
+
+
+ALTER TABLE device_assignments DROP COLUMN humidity;
+ALTER TABLE device_assignments DROP COLUMN temperature;
+ALTER TABLE users DROP COLUMN cash;
