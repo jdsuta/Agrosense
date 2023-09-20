@@ -1,15 +1,6 @@
-# IoT + Web App - Monitor of Temperature and Moisture of plants
+# AgroSense IoT
 
-#### Video Demo:  <URL HERE>
-
-#### Technology used:
-
-1. *Back End (BE)*: Python with Flask, Sendgrid API for email communication.
-2. *Front End (FE)*: HTML, JavaScript, Bootstrap.
-3. *Device*: Intel Galileo, an Arduino-certified development board based on Intel x86
-architecture. It is programmed using the Arduino interface to collect and send data
-to the web server.
-
+#### Video Demo:  https://youtu.be/QdPggtvKLwg
 
 #### Description:
 
@@ -32,6 +23,28 @@ The web application displays a summary of the last 7 days, presenting the averag
 Data is collected by the Intel Galileo board and transmitted to the web server every 5 minutes. If the recorded temperature or humidity falls outside a predefined range, an alert email is automatically sent to the email address associated with the device. This feature acts as an "alarm email."
 
 AgroSense also offers the capability for individuals to create and send data to the web server via API. Users can then access and review the results by logging into the web application.
+
+#### Getting started:
+
+1. To use the code, please register with Twilio SendGrid at https://signup.sendgrid.com/.
+   Create an account, register a domain, add DNS records, and **generate an API KEY**.
+
+2. Add the API KEY to the code as follows:  Navigate to the folder that contains app.py file in your terminal, and include the API KEY using the format `export SENDGRID_API_KEY=<YOUR_API_KEY>`
+
+3. In the folder that contains app.py file run the command: `flask run` to start the web app.
+
+4. Please be aware that you must **make the port public** and set the protocol to **HTTP** for the web app to function correctly. Refer to the image in the **INTEL GALILEO** [section](#intel-galileo) step 3, for guidance.
+
+5. A sample code in the intel galileo board (Ardunio based board) please review the folder "Galileo"
+
+
+#### Technology used:
+
+1. *Back End (BE)*: Python with Flask, SendGrid API for email communication.
+2. *Front End (FE)*: HTML, JavaScript, Bootstrap.
+3. *Device*: Intel Galileo, an Arduino-certified development board based on Intel x86
+architecture. It is programmed using the Arduino interface to collect and send data
+to the web server.
 
 ---
 
@@ -77,7 +90,7 @@ __Conditions for the Page:__
 
     ![Welcome Email](https://github.com/jdsuta/jdsuta/blob/main/images_agrosense/AS-Welcome_email.png)
 
-    For more details on how emails work, refer to the [email](https://github.com/code50/76489568/tree/main/week10/project#email) section below.
+    For more details on how emails work, refer to the [email](#email) section below.
 
 9. Subsequently, the user is redirected to the home page ('/').
 

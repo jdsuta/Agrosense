@@ -1,20 +1,14 @@
-# This program is not considering race conditions
-# Flask run ---> to run the code
-# Sendgrid To send email.
-# export SENDGRID_API_KEY=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
-# helpers.py verify_api_key edit and then proceed to test with postman?
-# in codespaces it's ncessary to make the port of the endpoint public to use postman.
-
-
-# laurie
-# pwd Xpoint123*
-# API KEY test created by Agrosense itself: a2f3bdd3c1d234a1529ff8233b98633e
-# test_apikey
-
-
-# Device name api1 to test multiple devices
-# api1
-# 92b757a52095a2a54e690136960fa108
+# This program is not considering race conditions !
+# To understand what it does please refer to the README.md file
+#
+#
+# IMPORTANT!!!
+# 1. In order to use the code please register with Twilio - sendgrid https://signup.sendgrid.com/ create an account, register a domain, add DNS records and CREATE AN API KEY
+# 2. Add the API KEY like this: export SENDGRID_API_KEY=<YOUR_API_KEY> in the app.py file
+# If API KEY is not added the code will not run!
+# 3. Navigate to the folder that contains the app.py file and run "flask run" ---> to run the web app!
+# 4. Please notice you must make the port public and protocol HTTP. Check the image in the INTEL GALILEO section, step 3.
+# 5. A sample code in the intel galileo board (Ardunio based board) please review the folder "Galileo"
 
 import os
 import time

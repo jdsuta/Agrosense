@@ -1,12 +1,6 @@
-CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL, cash NUMERIC NOT NULL DEFAULT 10000.00, email);
+CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL, email);
 CREATE TABLE sqlite_sequence(name,seq);
 CREATE UNIQUE INDEX username ON users (username);
-CREATE TABLE stocks (
-    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    stock TEXT NOT NULL
-    );
-CREATE UNIQUE INDEX stock
-ON stocks (stock);
 CREATE TABLE devices (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     device_name TEXT NOT NULL,
@@ -20,7 +14,6 @@ CREATE TABLE device_assignments (
     FOREIGN KEY(device_id)
         REFERENCES devices (id)
 );
-
 CREATE TABLE device_history (
     user_id INTEGER,
     device_id INTEGER,
@@ -31,16 +24,6 @@ CREATE TABLE device_history (
         REFERENCES users (id)
     FOREIGN KEY(device_id)
         REFERENCES devices (id)
-);
-
-
-
-CREATE TABLE IF NOT EXISTS "stock_assignments"(
-  user_id INT,
-  stock_id INT,
-  shares INT,
-  price INT,
-  epoch_time INT
 );
 
 
